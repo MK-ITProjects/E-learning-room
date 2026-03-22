@@ -1,0 +1,37 @@
+	<?php
+session_start();
+
+if ( $_SESSION[ "sidx" ] == "" || $_SESSION[ "sidx" ] == NULL ) {
+	header( 'Location:studentlogin' );
+}
+
+$userid = $_SESSION[ "sidx" ];
+$eno = $_SESSION[ "eno" ];
+$username = $_SESSION[ "name" ];
+?>
+<?php include('studenthead.php'); ?>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12 text-center">
+			<!--Welcome page for student-->
+			<h3> Welcome <?php echo "<span style='color:red'>"." ".$username."</span>";?></h3>
+
+			<a href="mydetailsstudent.php?myds=<?php echo $userid;  ?>"> <button type="submit" class="btn btn-success" style="border-radius:0%;" title="My Details"><i class="fa fa-user"></i> My Profile</button></a>
+			
+			<a href="takeassessment.php?eno=<?php echo $eno; ?>"> <button  type="submit" class="btn btn-success" style="border-radius:0%;" ><i class="fa fa-pencil-square"></i> Take Assessment</button></a>
+
+			<a href="viewresult.php?eno=<?php echo $eno;  ?>"> <button  href="" type="submit" class="btn btn-success" style="border-radius:0%;"><i class="fa fa-file"></i> View Results</button> </a>
+
+			<a href="askquery.php?eid=<?php echo $userid;  ?>"> <button  href="" type="submit" class="btn btn-success" style="border-radius:0%;"><i class="fa fa-question"></i> Ask Query</button></a>
+
+			<a href="viewquery.php?eid=<?php echo $userid;  ?>"> <button  href="" type="submit" class="btn btn-success" style="border-radius:0%;"><i class="fa fa-question-circle"></i> My Query</button> </a>
+			
+			<a href="viewvideos.php?eid=<?php echo $userid;  ?>"> <button  href="" type="submit" class="btn btn-success" style="border-radius:0%;"><i class="fa fa-video-camera"></i> Videos (E-Learn)</button></a>
+			
+			<a href="logoutstudent"><button  href="" type="submit" class="btn btn-danger" style="border-radius:0%;">Logout</button></a>
+
+		</div>
+
+	</div>
+	<?php include('allfoot.php'); ?>
